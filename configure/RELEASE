@@ -8,46 +8,47 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 # define INSTALL_LOCATION_APP here
 #INSTALL_LOCATION_APP=<fullpathname>
 
-SUPPORT=/corvette/home/epics/devel
+# put this first!! Order matters here!!
+# areaDetector for plugins like NDPluginStats
+AREA_DETECTOR=/epics/src/areadetector-1-9-1
+
+SUPPORT=/usr/lib/epics
 -include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
 
 # This module
-QUADEM=$(SUPPORT)/quadEM-4-0
+QUADEM=/epics/src/quadem-4-0
 
 # ASYN - for device/driver support
-ASYN=$(SUPPORT)/asyn-4-21
+ASYN=$(SUPPORT)
 
 ### The following are needed only for the test application
 
 # For ipUnidig for APS_EM
-IPAC=$(SUPPORT)/ipac-2-11
+IPAC=$(SUPPORT)
 
 # Busy record 
-BUSY=$(SUPPORT)/busy-1-4
+BUSY=$(SUPPORT)
 
 # IpUnidig for APS_EM
-IPUNIDIG=$(SUPPORT)/ipUnidig-2-9
+IPUNIDIG=$(SUPPORT)
 
 # quadEM_SNL uses the sequencer
-SNCSEQ=$(SUPPORT)/seq-2-1-10
+SNCSEQ=$(SUPPORT)
 
 # save_restore
-AUTOSAVE=$(SUPPORT)/autosave-5-0
+AUTOSAVE=$(SUPPORT)
 
 # MCA is used for time series
-MCA=$(SUPPORT)/mca-7-3-1
-
-# areaDetector for plugins like NDPluginStats
-AREA_DETECTOR=$(SUPPORT)/areaDetector-1-9-1
+MCA=$(SUPPORT)
 
 # SSCAN is needed for general scanning
-SSCAN=$(SUPPORT)/sscan-2-8-1
+SSCAN=$(SUPPORT)
 
 # calc
-CALC=$(SUPPORT)/calc-3-0
+CALC=$(SUPPORT)
 
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=/corvette/usr/local/epics/base-3.14.12.3
+EPICS_BASE=/usr/lib/epics
 -include $(TOP)/../configure/EPICS_BASE.$(EPICS_HOST_ARCH)
 
 #Capfast users may need the following definitions
